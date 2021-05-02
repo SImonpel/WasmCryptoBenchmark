@@ -1,18 +1,21 @@
-const sfjs = require('sjcl')
+const sjcl = require('sjcl')
+const createHash = require("sha256-uint8array").createHash;
 
-function sha256(buffer) {
-    sjcl.hash.sha256.hash(buffer)
+
+export function sha256(buffer) {
+    return createHash().update(buffer).digest();
 }
 
-function signAndCheckECDSA(buffer, publicKey, privateKey) {
-    pub = sjcl.codec.base64.fromBits(publicKey)
-    sec = sjcl.codec.base64.fromBits(privateKey)
-
-    var sig = pair.sec.sign(sjcl.hash.sha256.hash(buffer))
-    var ok = pair.pub.verify(sjcl.hash.sha256.hash(buffer), sig)
-}
-
-function encryptAES(buffer, key) {
-    ciphertext = sjcl.encrypt(key, buffer, {mode : "gcm"})
-    sjcl.decrypt(key, ciphertext)
-}
+//export function signAndCheckECDSA(buffer, publicKey, privateKey) {
+//    const pub = sjcl.codec.base64.fromBits(publicKey)
+//    const sec = sjcl.codec.base64.fromBits(privateKey)
+//
+//    const sig = pair.sec.sign(sjcl.hash.sha256.hash(buffer))
+//    return pair.pub.verify(sjcl.hash.sha256.hash(buffer), sig)
+//}
+//
+//export function encryptAndDecryptAES(buffer, key) {
+//    const keyBytes = new Uint8Array(key)
+//    const ciphertext = sjcl.encrypt(keyBytes, buffer, {mode : "gcm"})
+//    return sjcl.decrypt(key, ciphertext)
+//}

@@ -25,6 +25,22 @@ lto = true
 # to interact with JavaScript.
 wasm-bindgen = "0.2.45"
 hex = "0.4.3"
+rand_core = "0.6.2"
+
+[dependencies.instant]
+version = "0.1.9"
+features = [ "wasm-bindgen", "inaccurate" ]
+
+[dependencies.p256]
+version = "0.7.2"
+features = ["ecdsa",
+ "ecdsa-core",
+ "digest",
+ "sha256",
+ "std"
+]
+
+
 
 # `wee_alloc` is a tiny allocator for wasm that is only ~1K in code size
 # compared to the default allocator's ~10K. However, it is slower than the default

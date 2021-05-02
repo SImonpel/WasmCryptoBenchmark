@@ -1,3 +1,12 @@
+## Required Programs
+Npm, Cargo, clang 3.5 or above, llvm
+
+## Environmental Variables
+
+```sh
+TARGET_CC=clang; TARGET_AR=llvm-ar
+```
+
 ## How to install
 
 ```sh
